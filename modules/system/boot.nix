@@ -17,7 +17,7 @@ in
       supportedFilesystems = [ "ntfs" ];
       loader = {
         systemd-boot = {
-          enable = lib.mkForce false;
+          enable = lib.mkForce true;
           # https://github.com/NixOS/nixpkgs/blob/c32c39d6f3b1fe6514598fa40ad2cf9ce22c3fb7/nixos/modules/system/boot/loader/systemd-boot/systemd-boot.nix#L66
           editor = false;
           configurationLimit = 10;
@@ -48,7 +48,7 @@ in
         };
       };
       lanzaboote = {
-        enable = true;
+        enable = false;
         pkiBundle = "/var/lib/sbctl";
       };
     };
