@@ -1,5 +1,5 @@
 # Defaults tuned for this repo
-HOST       ?= desktop
+FLAKE_HOST ?= desktop
 USER       ?= makufff
 HOST_DIR   ?= hosts/$(USER)
 
@@ -9,8 +9,9 @@ NIX_FLAGS   ?= --extra-experimental-features 'nix-command flakes'
 NIXOS_FLAGS ?= -j 4 --cores 6
 HOME_FLAGS  ?= -j 4 --cores 6
 
-FLAKE      ?= .#$(HOST)
-FLAKE_HM   ?= .#$(USER)
+# Escape '#' so Make doesn't treat it as a comment
+FLAKE      ?= .\#$(FLAKE_HOST)
+FLAKE_HM   ?= .\#$(USER)
 
 all: switch
 
@@ -63,4 +64,3 @@ sbctl-keys:
 	sudo sbctl create-keys && sudo sbctl enroll-keys
 
 .PHONY: all lock update check fmt build test switch upgrade rescue boot home disko gen-hw sbctl-keys
-

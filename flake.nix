@@ -11,7 +11,6 @@
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
     disko.url = "github:nix-community/disko";
     stylix.url = "github:danth/stylix";
-    font-flake.url = "github:redyf/font-flake";
     zen-browser = {
       url = "github:0xc000022070/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
